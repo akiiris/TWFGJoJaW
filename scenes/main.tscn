@@ -1,3 +1,4 @@
 [gd_scene format=3 uid="uid://vhpbnrufkkfs"]
 
 [node name="Main" type="Node2D" unique_id=1846785778]
+metadata/_edit_lock_ = true
