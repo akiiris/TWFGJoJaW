@@ -4,9 +4,10 @@ extends Node
 @onready var fsm: StateMachine = get_parent()
 
 @onready var gravity: float = player.gravity
+@onready var jump_strength: float = player.jump_strength
 
 func enter():
-	pass
+	player.velocity.y = -jump_strength
 
 
 func exit(next_state):
@@ -14,9 +15,6 @@ func exit(next_state):
 
 
 func _physics_process(delta: float) -> void:
-	if player.is_on_floor():
-		var next_state: String = "Idle"
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-			next_state = "Walking"
-		exit(next_state)
+	if player.velocity.y > 0:
+		exit("Falling")
 	player.velocity.y += gravity

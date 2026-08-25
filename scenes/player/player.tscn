@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://flspthv38onb" path="res://scenes/player/states/player_idle.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://yfbv52qwei5y" path="res://scenes/player/states/player_walking.gd" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://bc6t3fb2n5d2k" path="res://scenes/player/states/player_falling.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://bink0lt6o6alo" path="res://scenes/player/states/player_jumping.gd" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjddi"]
 size = Vector2(40, 80)
@@ -37,6 +38,9 @@ script = ExtResource("3_lvxji")
 
 [node name="Falling" type="Node" parent="StateMachine" unique_id=298417483]
 script = ExtResource("5_p47bc")
+
+[node name="Jumping" type="Node" parent="StateMachine" unique_id=2093370803]
+script = ExtResource("6_75vfm")
 
 [node name="Label" type="Label" parent="." unique_id=45899064]
 offset_left = -79.0

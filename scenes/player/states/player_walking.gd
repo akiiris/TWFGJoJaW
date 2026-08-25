@@ -3,7 +3,7 @@ extends Node
 @onready var player: CharacterBody2D = get_parent().get_parent()
 @onready var fsm: StateMachine = get_parent()
 
-var speed: float = 300.0
+@onready var walk_speed: float = player.walk_speed
 
 var direction: int
 
@@ -23,6 +23,9 @@ func _unhandled_key_input(event):
 		direction = -1
 	if event.is_action_pressed("move_right"):
 		direction = 1
+	
+	if event.is_action_pressed("jump"):
+		exit("Jumping")
 
 
 func _process(delta: float) -> void:
@@ -34,8 +37,7 @@ func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		exit("Falling")
 	walk()
-	player.move_and_slide()
 
 
 func walk() -> void:
-	player.velocity.x = speed * direction
+	player.velocity.x = walk_speed * direction
