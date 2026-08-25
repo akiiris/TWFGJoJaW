@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://03hbtq10ubmn"]
+
+[ext_resource type="Script" uid="uid://cs0pa38flvb4d" path="res://scenes/state_machine.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://dhc7jv5i7eotg" path="res://scenes/player/player.gd" id="1_lvxji"]
+[ext_resource type="Script" uid="uid://flspthv38onb" path="res://scenes/player/states/player_idle.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://yfbv52qwei5y" path="res://scenes/player/states/player_walking.gd" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://bc6t3fb2n5d2k" path="res://scenes/player/states/player_falling.gd" id="5_p47bc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjddi"]
+size = Vector2(40, 80)
+
+[node name="Player" type="CharacterBody2D" unique_id=1047275458]
+collision_layer = 2
+script = ExtResource("1_lvxji")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=612037161]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 40.0
+color = Color(0, 0.84705883, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="Col" type="CollisionShape2D" parent="." unique_id=631167735]
+shape = SubResource("RectangleShape2D_cjddi")
+metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=1070860558]
+script = ExtResource("1_8afob")
+metadata/_custom_type_script = "uid://cs0pa38flvb4d"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=726820984]
+script = ExtResource("2_gmlin")
+
+[node name="Walking" type="Node" parent="StateMachine" unique_id=799078685]
+script = ExtResource("3_lvxji")
+
+[node name="Falling" type="Node" parent="StateMachine" unique_id=298417483]
+script = ExtResource("5_p47bc")
+
+[node name="Label" type="Label" parent="." unique_id=45899064]
+offset_left = -79.0
+offset_top = -98.0
+offset_right = -39.0
+offset_bottom = -75.0
+text = "State"

@@ -1,4 +1,8 @@
 [gd_scene format=3 uid="uid://vhpbnrufkkfs"]
 
+[ext_resource type="PackedScene" uid="uid://upkywodeyssy" path="res://scenes/game.tscn" id="1_o5qli"]
+
 [node name="Main" type="Node2D" unique_id=1846785778]
 metadata/_edit_lock_ = true
+
+[node name="Game" parent="." unique_id=1598945928 instance=ExtResource("1_o5qli")]

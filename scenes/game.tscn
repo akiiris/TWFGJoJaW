@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://upkywodeyssy"]
 
+[ext_resource type="PackedScene" uid="uid://03hbtq10ubmn" path="res://scenes/player/player.tscn" id="1_uwrxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjddi"]
+size = Vector2(945, 33)
+
 [node name="Game" type="Node2D" unique_id=1598945928]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1994177175]
+offset_left = 96.0
+offset_top = 503.0
+offset_right = 1041.0
+offset_bottom = 536.0
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=312096548]
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=905051088]
+position = Vector2(568.5, 519.5)
+shape = SubResource("RectangleShape2D_cjddi")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1047275458 instance=ExtResource("1_uwrxv")]
+position = Vector2(291, 83)
