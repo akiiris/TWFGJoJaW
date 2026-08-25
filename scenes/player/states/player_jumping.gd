@@ -14,7 +14,14 @@ func exit(next_state):
 	fsm.change_to(next_state)
 
 
+func _unhandled_key_input(event):
+	player.handle_direction(event)
+
+
 func _physics_process(delta: float) -> void:
 	if player.velocity.y > 0:
 		exit("Falling")
 	player.velocity.y += gravity
+	if player.is_inputting_direction():
+		player.walk()
+	player.add_friction()

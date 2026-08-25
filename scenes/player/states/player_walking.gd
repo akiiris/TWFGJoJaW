@@ -5,13 +5,11 @@ extends Node
 
 @onready var walk_speed: float = player.walk_speed
 
-var direction: int
-
 func enter():
 	if Input.is_action_pressed("move_left"):
-		direction = -1
+		player.direction = -1
 	else:
-		direction = 1
+		player.direction = 1
 
 
 func exit(next_state):
@@ -19,13 +17,9 @@ func exit(next_state):
 
 
 func _unhandled_key_input(event):
-	if event.is_action_pressed("move_left"):
-		direction = -1
-	if event.is_action_pressed("move_right"):
-		direction = 1
-	
 	if event.is_action_pressed("jump"):
 		exit("Jumping")
+	player.handle_direction(event)
 
 
 func _process(delta: float) -> void:
@@ -36,8 +30,5 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		exit("Falling")
-	walk()
-
-
-func walk() -> void:
-	player.velocity.x = walk_speed * direction
+	player.walk()
+	player.add_friction()

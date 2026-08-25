@@ -13,6 +13,10 @@ func exit(next_state):
 	fsm.change_to(next_state)
 
 
+func _unhandled_key_input(event):
+	player.handle_direction(event)
+
+
 func _physics_process(delta: float) -> void:
 	if player.is_on_floor():
 		var next_state: String = "Idle"
@@ -20,3 +24,6 @@ func _physics_process(delta: float) -> void:
 			next_state = "Walking"
 		exit(next_state)
 	player.velocity.y += gravity
+	if player.is_inputting_direction():
+		player.walk()
+	player.add_friction()
