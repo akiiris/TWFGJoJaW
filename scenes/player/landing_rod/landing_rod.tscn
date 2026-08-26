@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5l32rj0uuubm"]
+
+[ext_resource type="Script" uid="uid://dvsrwi1yhuy0u" path="res://scenes/player/landing_rod/landing_rod.gd" id="1_gp55c"]
+
+[node name="LandingRod" type="Node2D" unique_id=261653077]
+script = ExtResource("1_gp55c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1520060255]
+offset_left = -20.0
+offset_top = -3.0
+offset_right = 60.0
+offset_bottom = 3.0
+color = Color(1, 0.3529412, 0, 1)
+metadata/_edit_lock_ = true

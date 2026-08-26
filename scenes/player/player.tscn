@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://yfbv52qwei5y" path="res://scenes/player/states/player_walking.gd" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://bc6t3fb2n5d2k" path="res://scenes/player/states/player_falling.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://bink0lt6o6alo" path="res://scenes/player/states/player_jumping.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://c88eoecykm5" path="res://scenes/player/landing_rod_marker.gd" id="7_0owmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjddi"]
 size = Vector2(40, 80)
@@ -42,9 +43,15 @@ script = ExtResource("5_p47bc")
 [node name="Jumping" type="Node" parent="StateMachine" unique_id=2093370803]
 script = ExtResource("6_75vfm")
 
+[node name="LandingRodMarker" type="Marker2D" parent="." unique_id=496428583]
+position = Vector2(0, 10)
+script = ExtResource("7_0owmy")
+metadata/_edit_lock_ = true
+
 [node name="Label" type="Label" parent="." unique_id=45899064]
 offset_left = -79.0
 offset_top = -98.0
 offset_right = -39.0
 offset_bottom = -75.0
 text = "State"
+metadata/_edit_lock_ = true

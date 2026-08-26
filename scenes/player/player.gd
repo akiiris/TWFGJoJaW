@@ -21,6 +21,8 @@ func walk() -> void:
 
 func add_friction() -> void:
 	velocity.x -= friction * sign(velocity.x)
+	if abs(velocity.x) <= friction:
+		velocity.x = 0
 
 
 func is_inputting_direction() -> bool:

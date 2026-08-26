@@ -5,17 +5,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjddi"]
 size = Vector2(945, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvkqj"]
+size = Vector2(138, 128)
+
 [node name="Game" type="Node2D" unique_id=1598945928]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1994177175]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=312096548]
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1994177175]
 offset_left = 96.0
 offset_top = 503.0
 offset_right = 1041.0
 offset_bottom = 536.0
-metadata/_edit_lock_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=312096548]
-collision_mask = 0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=905051088]
@@ -25,3 +28,18 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1047275458 instance=ExtResource("1_uwrxv")]
 position = Vector2(291, 83)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=121989839]
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D2" unique_id=1647764915]
+offset_left = 685.0
+offset_top = 152.0
+offset_right = 823.0
+offset_bottom = 280.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1023980308]
+position = Vector2(754, 216)
+shape = SubResource("RectangleShape2D_cvkqj")
+metadata/_edit_lock_ = true
