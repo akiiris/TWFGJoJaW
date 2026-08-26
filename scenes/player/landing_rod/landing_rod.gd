@@ -8,21 +8,21 @@ var hook_scene: PackedScene = preload("res://scenes/player/landing_rod/hook/hook
 
 var hook
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast"):
-		if not hook_exists():
-			cast()
-		else:
+		if hook_exists():
 			reel()
+		else:
+			cast()
 
 
 func hook_exists() -> bool:
-	if hooks_node.get_child_count() > 0:
-		return true
+	#if hooks_node.get_child_count() > 0:
+		#return true
 	return false
 
 
@@ -33,4 +33,4 @@ func cast() -> void:
 
 
 func reel() -> void:
-	pass
+	hook.reel()
