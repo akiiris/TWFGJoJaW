@@ -4,6 +4,7 @@ var strength: float = 1300.0
 var player_velocity_multiplier: float = 0.3 # how much of an effect the player's velocity has on the hook's initial velocity
 var gravity: float = 25.0
 var reel_speed: float = 2000.0
+var launch_strength: float = 5.0
 
 @onready var game = get_tree().root.get_node("Main/Game")
 @onready var hooks_node = game.get_node("Hooks")
@@ -64,3 +65,14 @@ func reel_empty(delta: float) -> bool:
 	if global_position.distance_to(rod_tip.global_position) < 1.0:
 		return true
 	return false
+
+
+func calculate_map_launch_vector() -> Vector2:
+	var hook_pos = global_position
+	var player_pos = player.global_position
+	var launch_vector: Vector2 = hook_pos - player_pos
+	return launch_vector * launch_strength
+
+
+func get_player():
+	return player

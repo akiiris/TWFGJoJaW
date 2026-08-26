@@ -8,8 +8,13 @@ func enter():
 
 
 func exit():
-	pass
+	queue_free()
 
 
 func _process(_delta: float) -> void:
 	hook.update_line_points()
+
+
+func _physics_process(delta: float) -> void:
+	if hook.reel_empty(delta):
+		exit()
