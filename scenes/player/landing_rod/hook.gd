@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var strength: float = 1000.0
+var player_velocity_multiplier: float = 0.3 # how much of an effect the player's velocity has on the hook's initial velocity
 
 var rod
 var rod_tip
@@ -24,3 +25,4 @@ func set_hook_position() -> void:
 func set_initial_velocity() -> void:
 	var direction = Vector2.RIGHT.rotated(rod.rotation)
 	linear_velocity = strength * direction
+	linear_velocity += player.velocity * player_velocity_multiplier

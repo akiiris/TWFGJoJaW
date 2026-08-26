@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var gravity: float = 40.0
+var gravity: float = 30.0
 var walk_speed: float = 400.0
 var friction: float = 60.0
-var jump_strength: float = 1400.0
+var jump_strength: float = 1100.0
 
 var direction: int = 1
 
