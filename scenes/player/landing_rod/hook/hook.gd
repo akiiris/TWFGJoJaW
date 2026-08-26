@@ -1,11 +1,14 @@
 extends RigidBody2D
 
 var strength: float = 1000.0
-var player_velocity_multiplier: float = 0.3 # how much of an effect the player's velocity has on the hook's initial velocity
+var player_velocity_multiplier: float = 0.2 # how much of an effect the player's velocity has on the hook's initial velocity
 
+@onready var game = get_tree().root.get_node("Main/Game")
+@onready var hooks_node = game.get_node("Hooks")
 var rod
 var rod_tip
 var player
+
 
 func init(rod_node, player_node) -> void:
 	rod = rod_node

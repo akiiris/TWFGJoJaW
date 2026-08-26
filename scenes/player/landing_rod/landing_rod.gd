@@ -4,6 +4,7 @@ var hook_scene: PackedScene = preload("res://scenes/player/landing_rod/hook/hook
 
 @onready var game = get_tree().root.get_node("Main/Game")
 @onready var player = get_parent().get_parent()
+@onready var hooks_node = game.get_node("Hooks")
 
 var hook
 
@@ -13,10 +14,23 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast"):
-		cast()
+		if not hook_exists():
+			cast()
+		else:
+			reel()
+
+
+func hook_exists() -> bool:
+	if hooks_node.get_child_count() > 0:
+		return true
+	return false
 
 
 func cast() -> void:
 	hook = hook_scene.instantiate()
 	hook.init(self, player)
-	game.add_child(hook)
+	hooks_node.add_child(hook)
+
+
+func reel() -> void:
+	pass

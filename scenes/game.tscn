@@ -43,3 +43,5 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1047275458 instance=ExtResource("1_uwrxv")]
 position = Vector2(291, 83)
+
+[node name="Hooks" type="Node" parent="." unique_id=1723074584]
