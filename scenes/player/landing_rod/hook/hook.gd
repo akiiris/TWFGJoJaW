@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var strength: float = 1300.0
-var player_velocity_multiplier: float = 0.4 # how much of an effect the player's velocity has on the hook's initial velocity
+var player_velocity_multiplier: float = 0.3 # how much of an effect the player's velocity has on the hook's initial velocity
 var gravity: float = 25.0
 
 @onready var game = get_tree().root.get_node("Main/Game")

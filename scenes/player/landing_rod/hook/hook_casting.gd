@@ -18,4 +18,6 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	hook.add_gravity()
-	hook.move_and_slide()
+	var collision_info = hook.move_and_collide(hook.velocity * delta)
+	if collision_info:
+		exit()
