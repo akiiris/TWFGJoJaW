@@ -11,5 +11,5 @@ func exit():
 	pass
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	hook.update_line_points()

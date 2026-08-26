@@ -14,15 +14,13 @@ func _physics_process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast"):
-		if hook_exists():
-			reel()
-		else:
+		if not hook_exists():
 			cast()
 
 
 func hook_exists() -> bool:
-	#if hooks_node.get_child_count() > 0:
-		#return true
+	if hooks_node.get_child_count() > 0:
+		return true
 	return false
 
 
@@ -30,7 +28,3 @@ func cast() -> void:
 	hook = hook_scene.instantiate()
 	hook.init(self, player)
 	hooks_node.add_child(hook)
-
-
-func reel() -> void:
-	hook.reel()

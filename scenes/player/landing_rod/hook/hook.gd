@@ -3,6 +3,7 @@ extends CharacterBody2D
 var strength: float = 1300.0
 var player_velocity_multiplier: float = 0.3 # how much of an effect the player's velocity has on the hook's initial velocity
 var gravity: float = 25.0
+var reel_speed: float = 2000.0
 
 @onready var game = get_tree().root.get_node("Main/Game")
 @onready var hooks_node = game.get_node("Hooks")
@@ -10,6 +11,8 @@ var gravity: float = 25.0
 var rod
 var rod_tip
 var player
+
+var collision_info: KinematicCollision2D
 
 
 func init(rod_node, player_node) -> void:
@@ -53,5 +56,11 @@ func update_line_points() -> void:
 		#attached_body = "map"
 
 
-func reel() -> void:
-	pass
+func reel_empty(delta: float) -> bool:
+	global_position = global_position.move_toward(
+		rod_tip.global_position,
+		reel_speed * delta
+	)
+	if global_position.distance_to(rod_tip.global_position) < 1.0:
+		return true
+	return false

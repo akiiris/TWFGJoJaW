@@ -3,12 +3,12 @@ extends Node
 @onready var hook: CharacterBody2D = get_parent().get_parent()
 @onready var fsm: StateMachine = get_parent()
 
-func enter() -> void:
+func enter():
 	pass
 
 
-func exit() -> void:
-	fsm.change_to("Reeling")
+func exit():
+	pass
 
 
 func _process(_delta: float) -> void:

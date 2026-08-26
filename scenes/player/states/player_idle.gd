@@ -7,7 +7,7 @@ func enter():
 	pass
 
 
-func exit(next_state):
+func exit(next_state: String):
 	fsm.change_to(next_state)
 
 
@@ -18,7 +18,7 @@ func _unhandled_key_input(event):
 		exit("Jumping")
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player.is_on_floor():
 		exit("Falling")
 	player.add_friction()

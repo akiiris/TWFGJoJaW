@@ -12,7 +12,7 @@ func enter():
 		player.direction = 1
 
 
-func exit(next_state):
+func exit(next_state: String):
 	fsm.change_to(next_state)
 
 
@@ -22,12 +22,12 @@ func _unhandled_key_input(event):
 	player.handle_direction(event)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 		exit("Idle")
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player.is_on_floor():
 		exit("Falling")
 	player.walk()
