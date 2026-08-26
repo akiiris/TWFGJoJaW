@@ -1,6 +1,6 @@
 extends Node2D
 
-var hook_scene: PackedScene = preload("res://scenes/player/landing_rod/hook.tscn")
+var hook_scene: PackedScene = preload("res://scenes/player/landing_rod/hook/hook.tscn")
 
 @onready var game = get_tree().root.get_node("Main/Game")
 @onready var player = get_parent().get_parent()

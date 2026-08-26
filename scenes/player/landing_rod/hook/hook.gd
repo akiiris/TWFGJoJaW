@@ -18,6 +18,10 @@ func _ready() -> void:
 	set_initial_velocity()
 
 
+func _process(delta: float) -> void:
+	update_line_points()
+
+
 func set_hook_position() -> void:
 	global_position = rod_tip.global_position
 
@@ -26,3 +30,7 @@ func set_initial_velocity() -> void:
 	var direction = Vector2.RIGHT.rotated(rod.rotation)
 	linear_velocity = strength * direction
 	linear_velocity += player.velocity * player_velocity_multiplier
+
+
+func update_line_points() -> void:
+	$Line.set_point_position(1, rod_tip.global_position - position)
