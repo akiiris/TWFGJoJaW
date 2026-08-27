@@ -13,7 +13,7 @@ func exit(next_state: String):
 	fsm.change_to(next_state)
 
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(event: InputEvent):
 	player.handle_direction(event)
 
 
@@ -26,4 +26,4 @@ func _physics_process(_delta: float) -> void:
 	player.velocity.y += gravity
 	if player.is_inputting_direction():
 		player.walk()
-	player.add_friction()
+	player.add_air_friction()

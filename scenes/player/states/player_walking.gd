@@ -16,7 +16,7 @@ func exit(next_state: String):
 	fsm.change_to(next_state)
 
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(event: InputEvent):
 	if event.is_action_pressed("jump"):
 		exit("Jumping")
 	player.handle_direction(event)
