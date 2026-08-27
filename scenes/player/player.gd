@@ -44,11 +44,11 @@ func is_inputting_direction() -> bool:
 func handle_direction(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left"):
 		direction = -1
-	if event.is_action_pressed("move_right"):
+	elif event.is_action_pressed("move_right"):
 		direction = 1
-	if event.is_action_released("move_right"):
+	elif event.is_action_released("move_right"):
 		if Input.is_action_pressed("move_left"):
 			direction = -1
-	if event.is_action_released("move_left"):
+	elif event.is_action_released("move_left"):
 		if Input.is_action_pressed("move_right"):
 			direction = 1
