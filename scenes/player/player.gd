@@ -11,7 +11,7 @@ var jump_strength: float = 1100.0
 var direction: int = 1
 
 func _process(_delta: float) -> void:
-	$Label.text = $StateMachine.current_state.name
+	$StateLabel.text = $StateMachine.current_state.name
 
 
 func _physics_process(_delta: float) -> void:
