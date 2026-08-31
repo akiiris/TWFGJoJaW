@@ -5,7 +5,7 @@ var walk_speed: float = 400.0
 var walk_acceleration: float = 200.0
 var max_walk_speed: float = 500.0
 var friction: float = 60.0
-var air_friction: float = 6.0
+var air_friction: float = 12.0
 var jump_strength: float = 1100.0
 
 var direction: int = 1

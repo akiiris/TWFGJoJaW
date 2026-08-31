@@ -55,3 +55,5 @@ offset_right = -39.0
 offset_bottom = -75.0
 text = "State"
 metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2120248679]
