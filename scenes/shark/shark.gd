@@ -11,7 +11,10 @@ var lurk_distance: float = 400.0
 var charge_speed: float = 1600.0
 var retreat_speed: float = 800.0
 
+var direction: float = 1.0
+
 func _ready() -> void:
+	handle_direction()
 	fsm.change_to("Lurking")
 
 
@@ -22,8 +25,8 @@ func _process(_delta: float) -> void:
 func lurk() -> bool:
 	var move_time: float = 0.8
 	
-	var direction := (global_position - player.global_position).normalized()
-	var target_position := player.global_position + direction * lurk_distance
+	var dir := (global_position - player.global_position).normalized()
+	var target_position := player.global_position + dir * lurk_distance
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", target_position, move_time).set_trans(Tween.TRANS_SINE)
@@ -35,7 +38,7 @@ func lurk() -> bool:
 func handle_direction() -> void:
 	var dir = sign(player.global_position.x - global_position.x)
 	if dir != 0:
-		scale.x = dir
+		direction = dir
 
 
 func charge(target_position: Vector2) -> bool:
