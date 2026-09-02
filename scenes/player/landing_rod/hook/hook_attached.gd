@@ -3,8 +3,14 @@ extends Node
 @onready var hook: CharacterBody2D = get_parent().get_parent()
 @onready var fsm: StateMachine = get_parent()
 
+var object_is_enemy: bool
+
 func enter() -> void:
-	pass
+	if hook.hooked is CharacterBody2D:
+		hook.reparent.call_deferred(hook.hooked)
+		object_is_enemy = true
+	else:
+		object_is_enemy = false
 
 
 func exit(next_state: String) -> void:
@@ -13,7 +19,10 @@ func exit(next_state: String) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cast"):
-		exit("ReelingMap")
+		if object_is_enemy:
+			exit("ReelingEnemy")
+		else:
+			exit("ReelingMap")
 
 
 func _process(_delta: float) -> void:

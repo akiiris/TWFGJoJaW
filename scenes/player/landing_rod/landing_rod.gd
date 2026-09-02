@@ -6,7 +6,7 @@ var hook_scene: PackedScene = preload("res://scenes/player/landing_rod/hook/hook
 @onready var player = get_parent().get_parent()
 @onready var hooks_node = game.get_node("Hooks")
 
-var hook
+var hook: CharacterBody2D = null
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func hook_exists() -> bool:
-	if hooks_node.get_child_count() > 0:
+	if hook:
 		return true
 	return false
 

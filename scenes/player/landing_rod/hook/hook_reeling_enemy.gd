@@ -8,7 +8,7 @@ func enter():
 
 
 func exit():
-	queue_free()
+	hook.queue_free()
 
 
 func _process(_delta: float) -> void:

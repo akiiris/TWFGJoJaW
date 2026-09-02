@@ -12,6 +12,7 @@ var launch_strength: float = 3.0
 var rod
 var rod_tip
 var player
+var hooked
 
 var collision_info: KinematicCollision2D
 
@@ -26,7 +27,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	$StateLabel.text = $StateMachine.current_state.name
+		$StateLabel.text = $StateMachine.current_state.name
 
 
 func set_hook_position() -> void:
@@ -45,7 +46,7 @@ func add_gravity() -> void:
 
 
 func update_line_points() -> void:
-	$Line.set_point_position(1, rod_tip.global_position - position)
+	$Line.set_point_position(1, rod_tip.global_position - global_position)
 
 
 #func _on_body_entered(body: Node) -> void:
@@ -55,6 +56,10 @@ func update_line_points() -> void:
 #func attach(body: Node) -> void:
 	#if body.is_in_group("map"):
 		#attached_body = "map"
+
+
+func set_hooked(body: PhysicsBody2D):
+	hooked = body
 
 
 func reel_empty(delta: float) -> bool:

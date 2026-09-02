@@ -36,5 +36,6 @@ func set_state(state_name):
 
 
 func _exit_tree():
-	for state in states.values():
-		state.free()
+	#for state in states.values():
+		#state.free()
+	pass

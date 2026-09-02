@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cfwlmd766mn1c" path="res://scenes/shark/states/shark_charging.gd" id="3_rktfb"]
 [ext_resource type="Script" uid="uid://cg2pjxkt8yplm" path="res://scenes/shark/states/shark_biting.gd" id="4_v43ge"]
 [ext_resource type="Script" uid="uid://ds8x8q5lmbonm" path="res://scenes/shark/states/shark_retreating.gd" id="5_by04y"]
+[ext_resource type="Script" uid="uid://dgjoolpvqd5gn" path="res://scenes/shark/states/shark_flinging.gd" id="7_v43ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cikw"]
 size = Vector2(200, 80)
@@ -71,6 +72,9 @@ script = ExtResource("4_v43ge")
 
 [node name="Retreating" type="Node" parent="StateMachine" unique_id=192079558]
 script = ExtResource("5_by04y")
+
+[node name="Flinging" type="Node" parent="StateMachine" unique_id=2141611556]
+script = ExtResource("7_v43ge")
 
 [node name="StateLabel" type="Label" parent="." unique_id=1113468710]
 offset_left = -100.0

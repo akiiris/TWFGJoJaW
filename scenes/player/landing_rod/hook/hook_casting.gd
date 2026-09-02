@@ -26,4 +26,9 @@ func _physics_process(delta: float) -> void:
 	hook.add_gravity()
 	var collision_info: KinematicCollision2D = hook.move_and_collide(hook.velocity * delta)
 	if collision_info:
+		hook.set_hooked(get_body_from_collision_info(collision_info))
 		exit("Attached", collision_info)
+
+
+func get_body_from_collision_info(collision_info: KinematicCollision2D):
+	return collision_info.get_collider()
