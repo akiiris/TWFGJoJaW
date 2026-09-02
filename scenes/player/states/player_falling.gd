@@ -23,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			next_state = "Walking"
 		exit(next_state)
+		return
 	player.velocity.y += gravity
 	if player.is_inputting_direction():
 		player.walk()

@@ -29,7 +29,7 @@ func lurk() -> bool:
 
 
 func charge(target_position: Vector2) -> void:
-	var move_speed: float = 600.0
+	var move_speed: float = 1000.0
 	
 	var target_velocity = global_position.direction_to(target_position) * move_speed
 	velocity = target_velocity

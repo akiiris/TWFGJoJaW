@@ -14,11 +14,14 @@ func exit(next_state: String):
 func _unhandled_key_input(event: InputEvent):
 	if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
 		exit("Walking")
+		return
 	if event.is_action_pressed("jump"):
 		exit("Jumping")
+		return
 
 
 func _physics_process(_delta: float) -> void:
 	if not player.is_on_floor():
 		exit("Falling")
+		return
 	player.add_friction()

@@ -17,7 +17,7 @@ func exit(next_state: String):
 	fsm.change_to(next_state)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if shark.global_position.distance_to(player.global_position) <= mouth_marker.position.x:
 		exit("Biting")
 		return

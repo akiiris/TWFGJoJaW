@@ -19,16 +19,19 @@ func exit(next_state: String):
 func _unhandled_key_input(event: InputEvent):
 	if event.is_action_pressed("jump"):
 		exit("Jumping")
+		return
 	player.handle_direction(event)
 
 
 func _process(_delta: float) -> void:
 	if not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 		exit("Idle")
+		return
 
 
 func _physics_process(_delta: float) -> void:
 	if not player.is_on_floor():
 		exit("Falling")
+		return
 	player.walk()
 	player.add_friction()

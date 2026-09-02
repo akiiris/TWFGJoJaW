@@ -21,6 +21,7 @@ func _unhandled_key_input(event: InputEvent):
 func _physics_process(_delta: float) -> void:
 	if player.velocity.y > 0:
 		exit("Falling")
+		return
 	player.velocity.y += gravity
 	if player.is_inputting_direction():
 		player.walk()
