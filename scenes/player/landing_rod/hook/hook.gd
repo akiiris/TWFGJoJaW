@@ -46,7 +46,7 @@ func add_gravity() -> void:
 
 
 func update_line_points() -> void:
-	$Line.set_point_position(1, rod_tip.global_position - global_position)
+	$Line.set_point_position(1, $Line.to_local(rod_tip.global_position))
 
 
 #func _on_body_entered(body: Node) -> void:
