@@ -16,6 +16,10 @@ func exit(next_state: String):
 	fsm.change_to(next_state)
 
 
+func _process(_delta: float) -> void:
+	shark.handle_direction()
+
+
 func calc_move_timer_wait_time():
 	var wait_time: float = randf_range(move_timer_min, move_timer_max)
 	

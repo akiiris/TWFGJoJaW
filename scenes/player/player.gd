@@ -52,3 +52,7 @@ func handle_direction(event: InputEvent) -> void:
 	elif event.is_action_released("move_left"):
 		if Input.is_action_pressed("move_right"):
 			direction = 1
+
+
+func take_damage(amt: float) -> void:
+	pass

@@ -4,8 +4,10 @@ extends Node
 @onready var fsm: StateMachine = get_parent()
 
 func enter():
-	pass
+	await shark.set_bite(true)
+	shark.set_bite(false)
+	exit("Retreating")
 
 
-func exit():
-	pass
+func exit(next_state: String):
+	fsm.change_to(next_state)

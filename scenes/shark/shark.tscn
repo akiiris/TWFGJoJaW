@@ -10,13 +10,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cikw"]
 size = Vector2(200, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg523"]
+size = Vector2(70, 70)
+
 [node name="Shark" type="CharacterBody2D" unique_id=1486775913]
 collision_layer = 8
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_rktfb")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1046967937]
+[node name="Spr" type="ColorRect" parent="." unique_id=1046967937]
 offset_left = -100.0
 offset_top = -40.0
 offset_right = 100.0
@@ -25,6 +28,29 @@ metadata/_edit_lock_ = true
 
 [node name="Col" type="CollisionShape2D" parent="." unique_id=1578589375]
 shape = SubResource("RectangleShape2D_6cikw")
+metadata/_edit_lock_ = true
+
+[node name="MouthMarker" type="Marker2D" parent="." unique_id=1668232793]
+position = Vector2(100, 0)
+metadata/_edit_lock_ = true
+
+[node name="BiteArea" type="Area2D" parent="MouthMarker" unique_id=1915198004]
+collision_layer = 16
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="Spr" type="ColorRect" parent="MouthMarker/BiteArea" unique_id=97835506]
+visible = false
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Col" type="CollisionShape2D" parent="MouthMarker/BiteArea" unique_id=263780432]
+shape = SubResource("RectangleShape2D_qg523")
+disabled = true
 metadata/_edit_lock_ = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=654967660]
@@ -52,10 +78,6 @@ offset_top = -89.0
 offset_right = -60.0
 offset_bottom = -66.0
 text = "State"
-metadata/_edit_lock_ = true
-
-[node name="MouthMarker" type="Marker2D" parent="." unique_id=1668232793]
-position = Vector2(100, 0)
 metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="StateMachine/Lurking/MoveTimer" to="StateMachine/Lurking" method="_on_move_timer_timeout"]
