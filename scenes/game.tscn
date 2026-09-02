@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://upkywodeyssy"]
 
 [ext_resource type="PackedScene" uid="uid://03hbtq10ubmn" path="res://scenes/player/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dslicmv2acbbc" path="res://scenes/shark/shark.tscn" id="2_yqjtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjddi"]
 size = Vector2(945, 33)
@@ -42,6 +43,11 @@ shape = SubResource("RectangleShape2D_cvkqj")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1047275458 instance=ExtResource("1_uwrxv")]
-position = Vector2(291, 83)
+position = Vector2(309, 367)
 
 [node name="Hooks" type="Node" parent="." unique_id=1723074584]
+
+[node name="Sharks" type="Node" parent="." unique_id=2142973925]
+
+[node name="Shark" parent="Sharks" unique_id=1486775913 instance=ExtResource("2_yqjtg")]
+position = Vector2(479, 198)

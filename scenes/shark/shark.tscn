@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dslicmv2acbbc"]
+
+[ext_resource type="Script" uid="uid://cs0pa38flvb4d" path="res://scenes/state_machine.gd" id="1_j8ifv"]
+[ext_resource type="Script" uid="uid://onyd2fo134y0" path="res://scenes/shark/shark.gd" id="1_rktfb"]
+[ext_resource type="Script" uid="uid://cvem5gcs6d00s" path="res://scenes/shark/states/shark_lurking.gd" id="2_keda3"]
+[ext_resource type="Script" uid="uid://cfwlmd766mn1c" path="res://scenes/shark/states/shark_charging.gd" id="3_rktfb"]
+[ext_resource type="Script" uid="uid://cg2pjxkt8yplm" path="res://scenes/shark/states/shark_biting.gd" id="4_v43ge"]
+[ext_resource type="Script" uid="uid://ds8x8q5lmbonm" path="res://scenes/shark/states/shark_retreating.gd" id="5_by04y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cikw"]
+size = Vector2(200, 80)
+
+[node name="Shark" type="CharacterBody2D" unique_id=1486775913]
+collision_layer = 8
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_rktfb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1046967937]
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="Col" type="CollisionShape2D" parent="." unique_id=1578589375]
+shape = SubResource("RectangleShape2D_6cikw")
+metadata/_edit_lock_ = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=654967660]
+script = ExtResource("1_j8ifv")
+metadata/_custom_type_script = "uid://cs0pa38flvb4d"
+
+[node name="Lurking" type="Node" parent="StateMachine" unique_id=460337121]
+script = ExtResource("2_keda3")
+
+[node name="MoveTimer" type="Timer" parent="StateMachine/Lurking" unique_id=1670539691]
+one_shot = true
+
+[node name="Charging" type="Node" parent="StateMachine" unique_id=1490567076]
+script = ExtResource("3_rktfb")
+
+[node name="Biting" type="Node" parent="StateMachine" unique_id=1944978570]
+script = ExtResource("4_v43ge")
+
+[node name="Retreating" type="Node" parent="StateMachine" unique_id=192079558]
+script = ExtResource("5_by04y")
+
+[node name="StateLabel" type="Label" parent="." unique_id=1113468710]
+offset_left = -100.0
+offset_top = -89.0
+offset_right = -60.0
+offset_bottom = -66.0
+text = "State"
+metadata/_edit_lock_ = true
+
+[node name="MouthMarker" type="Marker2D" parent="." unique_id=1668232793]
+position = Vector2(100, 0)
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="StateMachine/Lurking/MoveTimer" to="StateMachine/Lurking" method="_on_move_timer_timeout"]
